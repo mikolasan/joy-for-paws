@@ -1,0 +1,19 @@
+{
+  "name": "joy-for-paws",
+  "version": "1.0.0",
+  "description": "Website for Joy for Paws project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "lite-server"
+  },
+  "keywords": [
+    "rescue",
+    "animals"
+  ],
+  "author": "Nikolay Neupokoev",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
