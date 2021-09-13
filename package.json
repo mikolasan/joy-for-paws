@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "lite-server"
+    "develop": "lite-server",
+    "build-css": "postcss css/tailwind.css -o css/style.css"
   },
   "keywords": [
     "rescue",
@@ -14,6 +15,9 @@
   "author": "Nikolay Neupokoev",
   "license": "MIT",
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "autoprefixer": "^10.3.4",
+    "lite-server": "^2.6.1",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.15"
   }
 }
