@@ -85,25 +85,25 @@ export default {
       <div class="md:hidden" id="mobile-menu" x-show="open">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <a href="/about.html" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">О нас</a>
+          <router-link to="/about" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">О нас</router-link>
 
-          <a href="/adopt.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Взять домой</a>
+          <router-link to="/adopt" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Взять домой</router-link>
 
-          <a href="/articles.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Советы</a>
+          <router-link to="/articles" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Советы</router-link>
 
-          <a href="/at_home_now.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Уже дома</a>
+          <router-link to="/at_home_now" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Уже дома</router-link>
 
-          <a href="/contacts.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Контакты</a>
+          <router-link to="/contacts" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Контакты</router-link>
 
-          <a href="/dreams.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Мечты</a>
+          <router-link to="/dreams" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Мечты</router-link>
 
-          <a href="/help.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Помочь</a>
+          <router-link to="/help" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Помочь</router-link>
 
-          <a href="/news.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Новости</a>
+          <router-link to="/news" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Новости</router-link>
 
-          <a href="/video.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Видео</a>
+          <router-link to="/video" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Видео</router-link>
 
-          <a href="/volunteers.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Ищем волонтеров / сотрудничество</a>
+          <router-link to="/volunteers" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Ищем волонтеров / сотрудничество</router-link>
         </div>
       </div>
     </div>
@@ -111,27 +111,27 @@ export default {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- section 1 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_1'">
-          <a href="/news.html" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Новости</a>
-          <a href="/adopt.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Помощь</a>
-          <a href="/video.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Видео</a>
-          <a href="/volunteers.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Мечты</a>
+          <router-link to="/news" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Новости</router-link>
+          <router-link to="/help" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Помощь</router-link>
+          <router-link to="/video" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Видео</router-link>
+          <router-link to="/dreams" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Мечты</router-link>
         </div>
         <!-- section 2 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_2'">
           <router-link to="/adopt" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Взять</router-link>
-          <a href="/articles.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Уже дома</a>
-          <a href="/volunteers.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Советы</a>
+          <router-link to="/at_home_now" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Уже дома</router-link>
+          <router-link to="/articles" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Советы</router-link>
         </div>
         <!-- section 3 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_3'">
-          <a href="/news.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ВКонтакте</a>
-          <a href="/adopt.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ютюб</a>
+          <a to="#vk" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ВКонтакте</a>
+          <a to="#YouTube" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ютюб</a>
         </div>
         <!-- section 4 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_4'">
-          <a href="/news.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">О нас</a>
-          <a href="/volunteers.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ищем волонтеров</a>
-          <a href="/adopt.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Спонсорам</a>
+          <router-link to="/about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">О нас</router-link>
+          <router-link to="/volunteers" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ищем волонтеров</router-link>
+          <router-link to="/sponsors" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Спонсорам</router-link>
         </div>
       </div>
     </div>
