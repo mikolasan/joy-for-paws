@@ -4,8 +4,9 @@
   "description": "Website for Joy for Paws project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "lite-server",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "build-css": "postcss css/tailwind.css -o css/style.css"
   },
   "keywords": [
@@ -15,11 +16,12 @@
   "author": "Nikolay Neupokoev",
   "license": "MIT",
   "devDependencies": {
+    "@vitejs/plugin-vue": "^1.8.1",
     "@vue/compiler-sfc": "^3.2.12",
     "autoprefixer": "^10.3.4",
-    "lite-server": "^2.6.1",
     "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.15"
+    "tailwindcss": "^2.2.15",
+    "vite": "^2.5.10"
   },
   "dependencies": {
     "vue": "^3.2.12"
