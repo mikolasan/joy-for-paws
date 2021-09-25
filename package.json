@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "build-css": "postcss css/tailwind.css -o css/style.css"
+    "serve": "vite preview"
   },
   "keywords": [
     "rescue",

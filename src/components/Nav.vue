@@ -118,7 +118,7 @@ export default {
         </div>
         <!-- section 2 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_2'">
-          <a href="/adopt.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Взять</a>
+          <router-link to="/adopt" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Взять</router-link>
           <a href="/articles.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Уже дома</a>
           <a href="/volunteers.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Советы</a>
         </div>
