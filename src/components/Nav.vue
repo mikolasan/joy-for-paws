@@ -1,9 +1,34 @@
 <script>
+import { ref } from 'vue'
+
 export default {
+  props: {
+    page: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
-      submenu: 'section_1',
       open: false
+    }
+  },
+  setup(props) {
+    const sectionMap = {
+      'news': 1,
+      'help': 1,
+      'video': 1,
+      'dreams': 1,
+      'adopt': 2,
+      'at-home-now':2,
+      'articles': 2,
+      'about': 4,
+      'volunteers': 4,
+      'sponsors': 4
+    }
+    const submenu = ref(`section_${sectionMap[props.page] || 1}`)
+    return {
+      submenu
     }
   }
 }
@@ -111,16 +136,16 @@ export default {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- section 1 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_1'">
-          <router-link to="/news" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Новости</router-link>
-          <router-link to="/help" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Помощь</router-link>
-          <router-link to="/video" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Видео</router-link>
-          <router-link to="/dreams" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Мечты</router-link>
+          <router-link to="/news" v-bind:class="page === 'news' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Новости</router-link>
+          <router-link to="/help" v-bind:class="page === 'help' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Помощь</router-link>
+          <router-link to="/video" v-bind:class="page === 'video' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Видео</router-link>
+          <router-link to="/dreams" v-bind:class="page === 'dreams' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Мечты</router-link>
         </div>
         <!-- section 2 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_2'">
-          <router-link to="/adopt" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Взять</router-link>
-          <router-link to="/at_home_now" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Уже дома</router-link>
-          <router-link to="/articles" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Советы</router-link>
+          <router-link to="/adopt" v-bind:class="page === 'adopt' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Взять</router-link>
+          <router-link to="/at_home_now" v-bind:class="page === 'at-home-now' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Уже дома</router-link>
+          <router-link to="/articles" v-bind:class="page === 'articles' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Советы</router-link>
         </div>
         <!-- section 3 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_3'">
@@ -129,9 +154,9 @@ export default {
         </div>
         <!-- section 4 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_4'">
-          <router-link to="/about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">О нас</router-link>
-          <router-link to="/volunteers" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ищем волонтеров</router-link>
-          <router-link to="/sponsors" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Спонсорам</router-link>
+          <router-link to="/about" v-bind:class="page === 'about' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">О нас</router-link>
+          <router-link to="/volunteers" v-bind:class="page === 'volunteers' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Ищем волонтеров</router-link>
+          <router-link to="/sponsors" v-bind:class="page === 'sponsors' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Спонсорам</router-link>
         </div>
       </div>
     </div>

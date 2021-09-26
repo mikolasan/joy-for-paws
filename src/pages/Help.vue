@@ -1,5 +1,5 @@
 <template>
-  <main-layout>
+  <main-layout page="help">
     <main class="bg-white">
       <div class="max-w-7xl mx-auto px-8 my-8">
       <!-- right block -->

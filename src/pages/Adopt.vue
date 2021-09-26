@@ -1,5 +1,5 @@
 <template>
-  <main-layout>
+  <main-layout page="adopt">
     <main class="bg-white">
       <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 class="mb-2 text-2xl font-extrabold tracking-tight text-gray-900">Кошки</h2>
