@@ -27,7 +27,7 @@ export default {
       'sponsors': 3,
       'contacts': 4,
     }
-    const submenu = ref(`section${sectionMap[props.page] || 1}`)
+    const submenu = ref(`section${sectionMap[props.page] === undefined ? 0 : sectionMap[props.page]}`)
     const selectedSection = ref(submenu.value)
     console.log(submenu, selectedSection)
     return {

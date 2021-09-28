@@ -5,103 +5,18 @@
         <h2 class="mb-2 text-2xl font-extrabold tracking-tight text-gray-900">Кошки</h2>
     
         <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          <a href="/adopt/cats/tuna.html" class="group">
+          <router-link v-for="cat in cats" :key="cat.link" :to="cat.link" class="group">
             <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-1.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
+              <img :src="cat.picture" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
             </div>
             <h3 class="mt-4 text-sm text-gray-700">
-              Тунец
+              {{cat.name}}
             </h3>
             <p class="mt-1 text-lg font-medium text-gray-900">
-              Маленький проказник
+              {{cat.text}}
             </p>
-          </a>
+          </router-link>
     
-          <a href="/adopt/cats/angela.html" class="group">
-            <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-2.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Анжела
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">
-              Белая и пушистая
-            </p>
-          </a>
-    
-          <a href="/adopt/cats/boris.html" class="group">
-            <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-3.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Боря
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">
-              Свой в доску пацан
-            </p>
-          </a>
-    
-          <a href="/adopt/cats/kuzya.html" class="group">
-            <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-4.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Кузя
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">
-              Мелкий паразит
-            </p>
-          </a>
-
-          <a href="/adopt/cats/melissa.html" class="group">
-            <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-5.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Мелисса
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">
-              Философ по жизни
-            </p>
-          </a>
-    
-          <a href="/adopt/cats/tolya.html" class="group">
-            <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-6.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Толя
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">
-              Сегодня встал не с той ноги
-            </p>
-          </a>
-    
-          <a href="/adopt/cats/sunset.html" class="group">
-            <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-7.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Сансет
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">
-              Безвольная вафля
-            </p>
-          </a>
-    
-          <a href="/adopt/cats/leps.html" class="group">
-            <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-              <img src="/images/cat-8.jpg" alt="" class="w-full h-full object-center object-cover group-hover:opacity-75">
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Лепс
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">
-              Кот Базилио
-            </p>
-          </a>
-    
-          
         </div>
       </div>
     </main>
@@ -110,4 +25,54 @@
 
 <script setup>
 import MainLayout from '../layouts/Main.vue';
+const cats = [
+  {
+    link: "/adopt/cats/sunset",
+    name: "Сансет",
+    text: "Безвольная вафля",
+    picture: "/images/cat-7.jpg"
+  },
+  {
+    link: "/adopt/cats/tolya",
+    name: "Толя",
+    text: "Сегодня встал не с той ноги",
+    picture: "/images/cat-6.jpg"
+  },
+  {
+    link: "/adopt/cats/melissa",
+    name: "Мелисса",
+    text: "Философ по жизни",
+    picture: "/images/cat-5.jpg"
+  },
+  {
+    link: "/adopt/cats/boris",
+    name: "Боря",
+    text: "Свой в доску пацан",
+    picture: "/images/cat-3.jpg"
+  },
+  {
+    link: "/adopt/cats/kuzya",
+    name: "Кузя",
+    text: "Мелкий паразит",
+    picture: "/images/cat-4.jpg"
+  },
+  {
+    link: "/adopt/cats/angela",
+    name: "Анжела",
+    text: "Белая и пушистая",
+    picture: "/images/cat-2.jpg"
+  },
+  {
+    link: "/adopt/cats/tuna",
+    name: "Тунец",
+    text: "Маленький проказник",
+    picture: "/images/cat-1.jpg"
+  },
+  {
+    link: "/adopt/cats/leps",
+    name: "Лепс",
+    text: "Кот Базилио",
+    picture: "/images/cat-8.jpg"
+  },
+]
 </script>
