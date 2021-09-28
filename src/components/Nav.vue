@@ -1,5 +1,5 @@
 <script>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 export default {
   props: {
@@ -10,32 +10,44 @@ export default {
   },
   data() {
     return {
-      open: false
+      open: false,
     }
   },
   setup(props) {
     const sectionMap = {
-      'news': 1,
-      'help': 1,
+      'dreams': -1,
+      'help': -1,
+      'news': 0,
+      'about': 1,
       'video': 1,
-      'dreams': 1,
+      'articles': 1,
       'adopt': 2,
       'at-home-now':2,
-      'articles': 2,
-      'about': 4,
-      'volunteers': 4,
-      'sponsors': 4
+      'volunteers': 3,
+      'sponsors': 3,
+      'contacts': 4,
     }
-    const submenu = ref(`section_${sectionMap[props.page] || 1}`)
+    const submenu = ref(`section${sectionMap[props.page] || 1}`)
+    const selectedSection = ref(submenu.value)
+    console.log(submenu, selectedSection)
     return {
-      submenu
+      submenu,
+      selectedSection
+    }
+  },
+  methods: {
+    onMouseOver(event, section) {
+      this.submenu = section
+    },
+    onMouseClick(event, section) {
+      // this.selectedSection = section
     }
   }
 }
 </script>
 
 <template>
-  <nav>
+  <nav @mouseleave="submenu = selectedSection">
     <div class="bg-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
@@ -65,41 +77,59 @@ export default {
             <div class="hidden sm:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <router-link to="/news">
                 <button
                   type="button"
                   class="px-3 py-2 rounded-md text-sm font-medium"
-                  v-bind:class="submenu === 'section_1' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                  v-bind:class="(submenu === 'section0' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' ' + (selectedSection === 'section0' ? 'border-2 border-white border-solid' : '')"
                   aria-controls="sub-menu"
                   aria-expanded="false"
-                  @click="submenu = 'section_1'"
+                  @mouseover="onMouseOver($event, 'section0')"
+                  @click="onMouseClick($event, 'section0')"
+                >Новости</button>
+                </router-link>
+
+                <button
+                  type="button"
+                  class="px-3 py-2 rounded-md text-sm font-medium"
+                  v-bind:class="(submenu === 'section1' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' ' + (selectedSection === 'section1' ? 'border-2 border-white border-solid' : '')"
+                  aria-controls="sub-menu"
+                  aria-expanded="false"
+                  @mouseover="onMouseOver($event, 'section1')"
+                  @click="onMouseClick($event, 'section1')"
                 >Приют</button>
 
                 <button
                   type="button"
                   class="px-3 py-2 rounded-md text-sm font-medium"
-                  v-bind:class="submenu === 'section_2' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                  v-bind:class="(submenu === 'section2' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' ' + (selectedSection === 'section2' ? 'border-2 border-white border-solid' : '')"
                   aria-controls="sub-menu"
                   aria-expanded="false"
-                  @click="submenu = 'section_2'"
+                  @mouseover="onMouseOver($event, 'section2')"
+                  @click="onMouseClick($event, 'section2')"
                 >Животные</button>
 
                 <button
                   type="button"
                   class="px-3 py-2 rounded-md text-sm font-medium"
-                  v-bind:class="submenu === 'section_3' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                  v-bind:class="(submenu === 'section3' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' ' + (selectedSection === 'section3' ? 'border-2 border-white border-solid' : '')"
                   aria-controls="sub-menu"
                   aria-expanded="false"
-                  @click="submenu = 'section_3'"
-                >Соцсети</button>
+                  @mouseover="onMouseOver($event, 'section3')"
+                  @click="onMouseClick($event, 'section3')"
+                >Помощь</button>
 
+                <router-link to="/contacts">
                 <button
                   type="button"
                   class="px-3 py-2 rounded-md text-sm font-medium"
-                  v-bind:class="submenu === 'section_4' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                  v-bind:class="(submenu === 'section4' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') + ' ' + (selectedSection === 'section4' ? 'border-2 border-white border-solid' : '')"
                   aria-controls="sub-menu"
                   aria-expanded="false"
-                  @click="submenu = 'section_4'"
+                  @mouseover="onMouseOver($event, 'section4')"
+                  @click="onMouseClick($event, 'section4')"
                 >Контакты</button>
+                </router-link>
               </div>
             </div>
           </div>
@@ -107,56 +137,47 @@ export default {
         </div>
       </div>
       <!-- Mobile menu, show/hide based on menu state. -->
-      <div class="md:hidden" id="mobile-menu" x-show="open">
+      <div class="md:hidden" id="mobile-menu" v-show="open">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <router-link to="/about" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">О нас</router-link>
 
+          <router-link to="/news" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Новости</router-link>
+          
           <router-link to="/adopt" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Взять домой</router-link>
+          <router-link to="/at_home_now" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Уже дома</router-link>
 
           <router-link to="/articles" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Советы</router-link>
 
-          <router-link to="/at_home_now" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Уже дома</router-link>
-
-          <router-link to="/contacts" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Контакты</router-link>
-
-          <router-link to="/dreams" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Мечты</router-link>
-
           <router-link to="/help" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Помочь</router-link>
-
-          <router-link to="/news" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Новости</router-link>
-
-          <router-link to="/video" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Видео</router-link>
-
           <router-link to="/volunteers" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Ищем волонтеров / сотрудничество</router-link>
+
+          <router-link to="/about" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">О нас</router-link>
+          <router-link to="/contacts" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Контакты</router-link>
         </div>
       </div>
     </div>
     <div class="hidden sm:block bg-gray-500" id="sub-menu">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- section 1 -->
-        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_1'">
-          <router-link to="/news" v-bind:class="page === 'news' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Новости</router-link>
-          <router-link to="/help" v-bind:class="page === 'help' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Помощь</router-link>
-          <router-link to="/video" v-bind:class="page === 'video' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Видео</router-link>
-          <router-link to="/dreams" v-bind:class="page === 'dreams' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Мечты</router-link>
+        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section0'">
         </div>
-        <!-- section 2 -->
-        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_2'">
-          <router-link to="/adopt" v-bind:class="page === 'adopt' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Взять</router-link>
-          <router-link to="/at_home_now" v-bind:class="page === 'at-home-now' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Уже дома</router-link>
+        <!-- section 1 -->
+        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section1'">
+          <router-link to="/about" v-bind:class="page === 'about' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">О нас</router-link>
+          <router-link to="/video" v-bind:class="page === 'video' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Видео</router-link>
           <router-link to="/articles" v-bind:class="page === 'articles' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Советы</router-link>
         </div>
-        <!-- section 3 -->
-        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_3'">
-          <a to="#vk" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ВКонтакте</a>
-          <a to="#YouTube" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ютюб</a>
+        <!-- section 2 -->
+        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section2'">
+          <router-link to="/adopt" v-bind:class="page === 'adopt' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Взять</router-link>
+          <router-link to="/at_home_now" v-bind:class="page === 'at-home-now' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Уже дома</router-link>
         </div>
-        <!-- section 4 -->
-        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section_4'">
-          <router-link to="/about" v-bind:class="page === 'about' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">О нас</router-link>
+        <!-- section 3 -->
+        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section3'">
           <router-link to="/volunteers" v-bind:class="page === 'volunteers' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Ищем волонтеров</router-link>
           <router-link to="/sponsors" v-bind:class="page === 'sponsors' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Спонсорам</router-link>
+        </div>
+        <!-- section 4 -->
+        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section4'">
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@
               <a href="#" class="no-underline hover:underline text-gray-800 hover:text-gray-500">Видео</a>
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a href="#" class="no-underline hover:underline text-gray-800 hover:text-gray-500">Мечты</a>
+              <a href="#" class="no-underline hover:underline text-gray-800 hover:text-gray-500">О нас</a>
             </li>
           </ul>
         </div>
@@ -50,11 +50,8 @@
           </ul>
         </div>
         <div class="flex-1">
-          <p class="uppercase text-gray-500 md:mb-6">Контакты</p>
+          <p class="uppercase text-gray-500 md:mb-6">Помощь</p>
           <ul class="list-reset mb-6">
-            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a href="#" class="no-underline hover:underline text-gray-800 hover:text-gray-500">О нас</a>
-            </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <a href="#" class="no-underline hover:underline text-gray-800 hover:text-gray-500">Ищем волонтеров</a>
             </li>
@@ -63,6 +60,14 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+    <!-- copyright -->
+    <div class="bg-gray-300 py-4">
+      <div class="max-w-7xl mx-auto px-8">
+        <p>
+          Copyright © 2021 Joy For Paws. All rights reserved.
+        </p>
       </div>
     </div>
   </footer>
