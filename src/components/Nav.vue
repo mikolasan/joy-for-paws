@@ -16,18 +16,21 @@ export default {
   setup(props) {
     const sectionMap = {
       'dreams': -1,
-      'help': -1,
+      'home': 999,
       'news': 0,
+      'shelter': 1,
       'about': 1,
       'video': 1,
       'articles': 1,
+      'stray-animals': 2,
       'adopt': 2,
       'at-home-now':2,
+      'help': 3,
       'volunteers': 3,
       'sponsors': 3,
       'contacts': 4,
     }
-    const submenu = ref(`section${sectionMap[props.page] === undefined ? 0 : sectionMap[props.page]}`)
+    const submenu = ref(`section${sectionMap[props.page] === undefined ? 999 : sectionMap[props.page]}`)
     const selectedSection = ref(submenu.value)
     console.log(submenu, selectedSection)
     return {
@@ -71,9 +74,11 @@ export default {
             </button>
           </div>
           <div class="flex-1 flex items-center justify-center  sm:justify-start">
+            <router-link to="/">
             <div class="flex-shrink-0">
               <img class="h-16 w-16" src="/images/logo.jpg" />
             </div>
+            </router-link>
             <div class="hidden sm:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
@@ -89,6 +94,7 @@ export default {
                 >Новости</button>
                 </router-link>
 
+                <router-link to="/shelter">
                 <button
                   type="button"
                   class="px-3 py-2 rounded-md text-sm font-medium"
@@ -98,7 +104,9 @@ export default {
                   @mouseover="onMouseOver($event, 'section1')"
                   @click="onMouseClick($event, 'section1')"
                 >Приют</button>
+                </router-link>
 
+                <router-link to="/stray_animals">
                 <button
                   type="button"
                   class="px-3 py-2 rounded-md text-sm font-medium"
@@ -108,7 +116,9 @@ export default {
                   @mouseover="onMouseOver($event, 'section2')"
                   @click="onMouseClick($event, 'section2')"
                 >Животные</button>
+                </router-link>
 
+                <router-link to="/help">
                 <button
                   type="button"
                   class="px-3 py-2 rounded-md text-sm font-medium"
@@ -118,6 +128,7 @@ export default {
                   @mouseover="onMouseOver($event, 'section3')"
                   @click="onMouseClick($event, 'section3')"
                 >Помощь</button>
+                </router-link>
 
                 <router-link to="/contacts">
                 <button
@@ -158,7 +169,7 @@ export default {
     </div>
     <div class="hidden sm:block bg-gray-500" id="sub-menu">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section0'">
+        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="!['section1', 'section2', 'section3'].includes(submenu)">
         </div>
         <!-- section 1 -->
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section1'">
@@ -175,9 +186,6 @@ export default {
         <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section3'">
           <router-link to="/volunteers" v-bind:class="page === 'volunteers' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Ищем волонтеров</router-link>
           <router-link to="/sponsors" v-bind:class="page === 'sponsors' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 rounded-md text-sm font-medium">Спонсорам</router-link>
-        </div>
-        <!-- section 4 -->
-        <div class="flex-1 flex items-center justify-center  sm:justify-start h-16 space-x-4" v-show="submenu === 'section4'">
         </div>
       </div>
     </div>
