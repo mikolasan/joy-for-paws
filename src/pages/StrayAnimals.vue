@@ -24,7 +24,7 @@
                 </div>
               </div>
 
-              <router-link to="/adopt" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Взять домой</router-link>
+              <router-link to="/adopt" class="inline-block text-center bg-green-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-green-700">Взять домой</router-link>
             </div>
           </div>
         </div>

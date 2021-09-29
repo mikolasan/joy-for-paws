@@ -4,7 +4,7 @@
       <div class="max-w-7xl mx-auto px-8 my-8">
       <!-- right block -->
       <div class="flex-1">
-        <h2 class="mb-2 text-base text-indigo-600 font-semibold tracking-wide uppercase">Спонсорам</h2>
+        <h2 class="mb-2 text-base text-pink-600 font-semibold tracking-wide uppercase">Спонсорам</h2>
         <p class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900">Сотрудничество</p>
         <p class="mt-4 max-w-2xl text-base text-gray-500">
           Мы открыты к сотрудничеству с вет клиниками и зоо магазинами

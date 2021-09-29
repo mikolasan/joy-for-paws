@@ -51,7 +51,7 @@ export default {
 
 <template>
   <nav @mouseleave="submenu = selectedSection">
-    <div class="bg-gray-800">
+    <div class="bg-gray-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
           <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -152,18 +152,18 @@ export default {
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 
-          <router-link to="/news" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Новости</router-link>
+          <router-link to="/news" v-bind:class="page === 'news' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">Новости</router-link>
           
-          <router-link to="/adopt" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Взять домой</router-link>
-          <router-link to="/at_home_now" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Уже дома</router-link>
+          <router-link to="/adopt" v-bind:class="page === 'adopt' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">Взять домой</router-link>
+          <router-link to="/at_home_now" v-bind:class="page === 'at-home-now' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">Уже дома</router-link>
 
-          <router-link to="/articles" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Советы</router-link>
+          <router-link to="/articles" v-bind:class="page === 'articles' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">Советы</router-link>
 
-          <router-link to="/help" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Помочь</router-link>
-          <router-link to="/volunteers" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Ищем волонтеров / сотрудничество</router-link>
+          <router-link to="/help" v-bind:class="page === 'help' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">Помочь</router-link>
+          <router-link to="/volunteers" v-bind:class="page === 'volunteers' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">Ищем волонтеров</router-link>
 
-          <router-link to="/about" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">О нас</router-link>
-          <router-link to="/contacts" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Контакты</router-link>
+          <router-link to="/about" v-bind:class="page === 'about' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">О нас</router-link>
+          <router-link to="/contacts" v-bind:class="page === 'contacts' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'" class="px-3 py-2 block rounded-md text-base font-medium">Контакты</router-link>
         </div>
       </div>
     </div>
