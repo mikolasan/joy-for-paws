@@ -13,6 +13,9 @@
         
       </div>
     </main>
+    <section class="mt-16" style="height: 400px">
+      <img class="w-full max-h-full object-cover filter grayscale" src="/images/nick-jenkins-unsplash.jpg" />
+    </section>
   </main-layout>
 </template>
 
