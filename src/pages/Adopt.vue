@@ -27,52 +27,16 @@
 import MainLayout from '../layouts/Main.vue';
 const cats = [
   {
-    link: "/adopt/cats/sunset",
-    name: "Сансет",
-    text: "Безвольная вафля",
-    picture: "/images/cat-7.jpg"
-  },
-  {
-    link: "/adopt/cats/tolya",
-    name: "Толя",
-    text: "Сегодня встал не с той ноги",
-    picture: "/images/cat-6.jpg"
-  },
-  {
-    link: "/adopt/cats/melissa",
-    name: "Мелисса",
-    text: "Философ по жизни",
-    picture: "/images/cat-5.jpg"
-  },
-  {
-    link: "/adopt/cats/boris",
-    name: "Боря",
-    text: "Свой в доску пацан",
-    picture: "/images/cat-3.jpg"
-  },
-  {
-    link: "/adopt/cats/kuzya",
-    name: "Кузя",
-    text: "Мелкий паразит",
-    picture: "/images/cat-4.jpg"
-  },
-  {
-    link: "/adopt/cats/angela",
-    name: "Анжела",
-    text: "Белая и пушистая",
-    picture: "/images/cat-2.jpg"
-  },
-  {
-    link: "/adopt/cats/tuna",
-    name: "Тунец",
-    text: "Маленький проказник",
+    link: "/adopt/cats/eclipse",
+    name: "Эклипс",
+    text: "Толстощекая мелкая",
     picture: "/images/cat-1.jpg"
   },
   {
-    link: "/adopt/cats/leps",
-    name: "Лепс",
-    text: "Кот Базилио",
-    picture: "/images/cat-8.jpg"
+    link: "/adopt/cats/lua",
+    name: "Луа",
+    text: "Кот которго звали Марта",
+    picture: "/images/cat-4.jpg"
   },
 ]
 </script>

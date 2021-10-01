@@ -6,6 +6,7 @@
           <router-link to="/" class="text-pink-700 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
             Joy For Paws
           </router-link>
+          <img class="w-full mt-2" src="/images/logo.png" />
         </div>
         <div class="flex-1">
           <p class="uppercase text-gray-500 md:mb-6">Приют</p>

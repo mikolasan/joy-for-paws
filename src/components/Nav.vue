@@ -54,7 +54,7 @@ export default {
     <div class="bg-gray-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
-          <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <!-- Mobile menu button-->
             <button 
               type="button"
@@ -76,7 +76,7 @@ export default {
           <div class="flex-1 flex items-center justify-center  sm:justify-start">
             <router-link to="/">
             <div class="flex-shrink-0">
-              <img class="h-16 w-16" src="/images/logo.jpg" />
+              <img class="w-16" src="/images/logo.png" />
             </div>
             </router-link>
             <div class="hidden sm:block">

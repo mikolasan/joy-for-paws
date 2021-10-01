@@ -8,20 +8,22 @@
           <div class="flex-1">
             <h2 class="mb-2 text-base text-pink-600 font-semibold tracking-wide uppercase">Взять домой</h2>
             <!-- image -->
-            <img class="hidden lg:block" src="/images/the-lucky-neko-unsplash.jpg" />
-            <!-- button -->
-            <div class="my-4 rounded-md shadow">
-              <a href="/adopt.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
-                Взять домой
-              </a>
+            <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
+              <img id="adopt-image" class="hidden lg:block lg:w-full lg:h-full lg:object-center lg:object-cover" src="/images/the-lucky-neko-unsplash.jpg" />
             </div>
+            <p class="my-4 text-3xl leading-8 font-extrabold tracking-tight text-gray-900">Бездомные животные</p>
+            <p class="mt-4 max-w-2xl text-base text-gray-500">В Новосибирске много бездомных животных. Чтобы и у вас появился друг - не надо за него платить</p>
+            
+            <!-- button -->
+            <router-link to="/adopt" class="my-4 inline-block text-center bg-green-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-green-700">Взять домой</router-link>
+            
           </div>
           <!-- right block -->
           <div class="flex-1">
             <h2 class="mb-2 text-base text-pink-600 font-semibold tracking-wide uppercase">Новости</h2>
-            <p class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900">Супер заголовок</p>
+            <p class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900">Группе нужны добровольцы!</p>
             <p class="mt-4 max-w-2xl text-base text-gray-500">
-              Подпишиьесь на группу ВКонтакте чтобы быть вкурсе важных событий в жизни приюта
+              Подпишитесь на группу ВКонтакте чтобы быть в курсе важных событий из жизни приюта
             </p>
             <!-- card -->
             <div class="bg-gray-200 my-8 p-6">

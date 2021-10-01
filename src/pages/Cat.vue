@@ -62,46 +62,24 @@
   
         <!-- Options -->
         <div class="mt-4 lg:mt-0 lg:row-span-3">
-          <p class="text-3xl text-gray-900">Безвольная вафля</p>
+          <p class="text-3xl text-gray-900">{{catInfo[cat].nick}}</p>
   
           <div id="chart">
             <apexchart type="polarArea" class="w-auto" :options="chartOptions" :series="catInfo[cat].series"></apexchart>
           </div>
-  
-          <button type="submit" class="mt-10 w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Взять домой</button>
+          
+          <form @submit.prevent="sumbitPhone">
+            <input type="text" v-model="human">
+            <input type="text" v-model="phone">
+            <button type="submit" class="mt-10 w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Взять домой</button>
+          </form>
         </div>
   
         <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
           <!-- Description and details -->
           <div>
-            <h3 class="sr-only">Description</h3>
-  
             <div class="space-y-6">
-              <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
-            </div>
-          </div>
-  
-          <div class="mt-10">
-            <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
-  
-            <div class="mt-4">
-              <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span></li>
-  
-                <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary colors</span></li>
-  
-                <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
-  
-                <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
-              </ul>
-            </div>
-          </div>
-  
-          <div class="mt-10">
-            <h2 class="text-sm font-medium text-gray-900">Details</h2>
-  
-            <div class="mt-4 space-y-6">
-              <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
+              <p v-for="paragraph in catInfo[cat].text.split('\n')" :key="paragraph" class="text-base text-gray-900">{{paragraph}}</p>
             </div>
           </div>
         </div>
@@ -111,8 +89,34 @@
 </template>
 
 <script setup>
+import axios from 'axios';
+import { ref, toRefs } from 'vue'
 import MainLayout from '../layouts/Main.vue';
 const catInfo = {
+  "eclipse": {
+    name: "Эклипс",
+    nick: "Толстощекая мелкая",
+    photo: ["/images/cat-1.jpg", "/images/cat-1.jpg", "/images/cat-1.jpg", "/images/cat-1.jpg"],
+    series: [81, 12, 45, 78, 36],
+    text: `В начале лета Эклипс была найдена во дворе дома. Мокрая, голодная, худая. Сидела под дождем и с надеждой смотрела на редких прохожих. Но все спешили мимо.
+      Я решилась взять её и найти хозяина.
+      Стерилизовала, полностью проверила здоровье, анализы и тесты ПЦР есть.
+      Осталось найти её Человека, который сможет подарить ей дом, заботу и любовь. Пожалуйста, присмотритесь, Эклипс молоденькая, ей около трех лет. Шерстка блестящая, переливается, мягкая и нежная как и характер кошечки.
+      По характеру ненавязчивая, но с азартом поддержит любую игру, любую забаву, ей нравятся всяческие игрушки, она очень активная и забавная кошечка! Эклипс очень милая, добрая и ласковая, в ней много нежного мурчания, искренне любит людей. Эта кошечка подарит Вам много радости и любви ❤️
+      Лоток - отлично, предпочитает натуральную еду, консервы и немного сухого корма. Когтеточку использует по назначению. Будет прекрасным другом Вам и Вашему ребёнку, если к ней отнесутся с тёплом и уважением.
+      Стерилизована, привита, есть паспорт.
+      Если Вы выберете Эклипс, Вы дадите шанс жить и ещё одной душе, т.к. планирую взять кошку из подвала, когда Эклипс уедет домой и пройдёт испытательный срок.
+      Отдается только в собственное жильё взрослым ответственным людям, с возможностью интересоваться ее судьбой.
+      Привезу познакомиться.`,
+  },
+  "lua": {
+    name: "Луа",
+    nick: "Кот которго звали Марта",
+    photo: ["/images/cat-4.jpg", "/images/cat-4.jpg", "/images/cat-4.jpg", "/images/cat-4.jpg"],
+    series: [32, 47, 36, 27, 41],
+    text: `Интересный окрас, ест сметану. Смешной.`,
+  },
+
   "sunset": {
     name: "Сансет",
     photo: ["/images/cat-7.jpg", "/images/cat-7.jpg", "/images/cat-7.jpg", "/images/cat-7.jpg"],
@@ -154,7 +158,6 @@ const catInfo = {
     series: [32, 47, 52, 22, 45],
   },
 }
-
 const chartOptions = {
   chart: {
     width: 380,
@@ -172,7 +175,7 @@ const chartOptions = {
     show: false
   },
   legend: {
-    show: false
+    show: true
   },
   plotOptions: {
     polarArea: {
@@ -188,4 +191,19 @@ const chartOptions = {
 const props = defineProps({
   cat: String
 })
+
+const { cat } = toRefs(props);
+const phone = ref("?")
+const human = ref("Вася")
+const webhookUrl = 'https://discord.com/api/webhooks/893564227049127936/qZgR944QXoqZILxc1C_HhvMNNz5vXt3TYDzyM2plJqjpib_ScN5mIk5Fre1BrPBg_P5_'
+const sumbitPhone = () => {
+  axios.post(webhookUrl, {content: `Человек по имени ${human.value} хочет взять кошку ${catInfo[cat.value].name}. Звонить по номеру ${phone.value}`})
+  .then(res => {
+    console.log(res)
+  })
+  .catch(err => {
+    console.error(err)
+  })
+}
+
 </script>
